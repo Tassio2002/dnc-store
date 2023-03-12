@@ -44,7 +44,7 @@ const theme = {
     // Brands
     devSamurai: '#f37272',
   },
-  fonts: ['Open Sans', 'Arial', 'Helvetica', 'sans-serif'].join(','),
+  fonts: ['Raleway', 'Open Sans', 'Arial', 'Helvetica', 'sans-serif'].join(','),
   fontSizes: {
     small: '.8rem',
     normal: '1.2rem',
