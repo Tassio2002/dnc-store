@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   HeaderLogin,
@@ -27,7 +28,9 @@ function LoginPage() {
           <UserInput />
           <LoginLabel>Senha:</LoginLabel>
           <PasswordInput />
-          <LoginButton>Entrar</LoginButton>
+          <Link to="/home">
+            <LoginButton type="button">Entrar</LoginButton>
+          </Link>
         </LoginForm>
       </MainContainer>
     </>

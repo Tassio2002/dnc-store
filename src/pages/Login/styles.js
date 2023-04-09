@@ -75,6 +75,7 @@ export const PasswordInput = styled.input.attrs({
 `;
 
 export const LoginButton = styled.button`
+  width: 100%;
   padding: 1em 0;
   border: none;
   border-radius: 6px;

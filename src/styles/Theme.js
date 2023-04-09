@@ -32,7 +32,7 @@ const theme = {
     carbonDark: '#3b3a3e',
 
     // Default colors
-    primary: '#2ecc71',
+    primary: '#2D2D2D',
     secondary: '#ecf0f1',
     danger: '#f37272',
     light: '#ecf0f1',
