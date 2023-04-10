@@ -4,45 +4,11 @@ const bg = (props) => props.theme.colors.primary;
 
 export const Body = styled.body`
   background-color: ${bg};
-  height: 100vw;
 `;
 
-export const NavBar = styled.nav`
-  width: 100vw;
-  padding: 1em 3em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: ${bg};
-`;
-
-export const SearchContainer = styled.div`
+export const ProductsSection = styled.section`
   width: 100%;
-  max-width: 970px;
-  height: 48px;
+  padding: 2em 6em;
   display: flex;
-`;
-
-export const SearchIcon = styled.div`
-  width: 5%;
-  display: flex;
-  padding-left: 15px;
-  justify-content: center;
-  align-items: center;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  background-color: white;
-`;
-
-export const SearchBar = styled.input.attrs({
-  type: 'text',
-  placeholder: 'O que você está procurando?',
-})`
-  width: 95%;
-  border: none;
-  padding: 0.5em;
-  background-color: white;
-  color: black;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  flex-wrap: wrap;
 `;
