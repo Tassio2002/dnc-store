@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import LoginPage from './pages/Login';
 import HomePage from './pages/Home';
+import MyCart from './pages/Cart';
 
 export default function Routes() {
   return (
@@ -13,6 +14,9 @@ export default function Routes() {
         </Route>
         <Route path="/home">
           <HomePage />
+        </Route>
+        <Route path="/cart">
+          <MyCart />
         </Route>
       </Switch>
     </Router>

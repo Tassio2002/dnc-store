@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const bg = (props) => props.theme.colors.primary;
 
 export const MenuContainer = styled.div`
-  width: 95vw;
+  width: 100%;
   padding: 2em;
   display: flex;
   justify-content: space-between;
