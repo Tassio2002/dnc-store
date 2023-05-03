@@ -41,3 +41,9 @@ export const SearchBar = styled.input.attrs({
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 `;
+
+export const MyCart = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
