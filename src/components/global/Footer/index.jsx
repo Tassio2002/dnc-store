@@ -5,7 +5,7 @@ import {
   ContainerContact,
   ContactText,
 } from './styles';
-import footerLogo from '../../assets/images/logo-footer.png';
+import footerLogo from '../../../assets/images/logo-footer.png';
 
 export default function Footer() {
   return (

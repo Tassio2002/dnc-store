@@ -1,7 +1,7 @@
 import React from 'react';
-import Footer from '../../components/Footer';
-import NavBar from '../../components/NavBar';
-import NavMenu from '../../components/NavMenu';
+import Footer from '../../components/global/Footer';
+import NavBar from '../../components/global/NavBar';
+import NavMenu from '../../components/global/NavMenu';
 import productImage from '../../assets/images/image 21.png';
 import {
   MainContainer,
