@@ -17,22 +17,21 @@ import logo from '../../assets/images/logo.png';
 
 function LoginPage() {
   const [cpf, setCpf] = useState('');
-  const [isValid, setIsValid] = useState('CPF inválido');
+  const [isValid, setIsValid] = useState('');
 
-  const cpfValidation = () => {
+  const cpfValidation = (event) => {
     const currentCpf = cpf;
     const regexTest =
       /^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}-?[0-9]{2})$/.test(
         currentCpf
       );
-    console.log(regexTest);
-    if (regexTest === true) {
-      setIsValid('CPF válido');
-    } else {
+
+    if (regexTest !== true) {
       setIsValid('CPF inválido');
+      event.preventDefault();
     }
   };
-
+  //password validation
   return (
     <>
       <HeaderLogin>
@@ -46,9 +45,11 @@ function LoginPage() {
           <UserInput onChange={(e) => setCpf(e.target.value)} />
           <ValidCpf>{isValid}</ValidCpf>
           <LoginLabel>Senha:</LoginLabel>
-          <PasswordInput onMouseEnter={cpfValidation} />
+          <PasswordInput />
           <Link to="/home">
-            <LoginButton type="button">Entrar</LoginButton>
+            <LoginButton type="button" onClick={cpfValidation}>
+              Entrar
+            </LoginButton>
           </Link>
         </LoginForm>
       </MainContainer>
