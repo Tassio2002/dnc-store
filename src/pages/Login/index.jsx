@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -8,6 +8,7 @@ import {
   LoginSubtitle,
   LoginForm,
   LoginLabel,
+  ValidCpf,
   UserInput,
   PasswordInput,
   LoginButton,
@@ -15,6 +16,23 @@ import {
 import logo from '../../assets/images/logo.png';
 
 function LoginPage() {
+  const [cpf, setCpf] = useState('');
+  const [isValid, setIsValid] = useState('CPF inválido');
+
+  const cpfValidation = () => {
+    const currentCpf = cpf;
+    const regexTest =
+      /^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}-?[0-9]{2})$/.test(
+        currentCpf
+      );
+    console.log(regexTest);
+    if (regexTest === true) {
+      setIsValid('CPF válido');
+    } else {
+      setIsValid('CPF inválido');
+    }
+  };
+
   return (
     <>
       <HeaderLogin>
@@ -25,9 +43,10 @@ function LoginPage() {
         <LoginSubtitle>você pode entrar com o seu CPF</LoginSubtitle>
         <LoginForm>
           <LoginLabel>Digite seu CPF:</LoginLabel>
-          <UserInput />
+          <UserInput onChange={(e) => setCpf(e.target.value)} />
+          <ValidCpf>{isValid}</ValidCpf>
           <LoginLabel>Senha:</LoginLabel>
-          <PasswordInput />
+          <PasswordInput onMouseEnter={cpfValidation} />
           <Link to="/home">
             <LoginButton type="button">Entrar</LoginButton>
           </Link>
