@@ -57,7 +57,7 @@ export const UserInput = styled.input.attrs({
   }
 `;
 
-export const ValidCpf = styled.span`
+export const Message = styled.span`
   margin-bottom: 2em;
   font-size: 13px;
   color: red;
@@ -70,7 +70,7 @@ export const PasswordInput = styled.input.attrs({
   padding: 1em;
   border: 2px solid #7a7a7a;
   border-radius: 10px;
-  margin-bottom: 3.5em;
+  margin-bottom: 0.5em;
   font-size: 14px;
   color: #616161;
   background: rgba(255, 255, 255, 0.9);

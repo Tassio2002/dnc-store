@@ -8,30 +8,36 @@ import {
   LoginSubtitle,
   LoginForm,
   LoginLabel,
-  ValidCpf,
   UserInput,
   PasswordInput,
+  Message,
   LoginButton,
 } from './styles';
 import logo from '../../assets/images/logo.png';
 
 function LoginPage() {
   const [cpf, setCpf] = useState('');
-  const [isValid, setIsValid] = useState('');
+  const [password, setPassword] = useState('');
+  const [cpfError, setCpfError] = useState('');
 
-  const cpfValidation = (event) => {
-    const currentCpf = cpf;
-    const regexTest =
-      /^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}-?[0-9]{2})$/.test(
-        currentCpf
-      );
+  // criar mensagems personaliadas
+  const loginValidator = (event, input, regex) => {
+    const data = input;
 
+    const regexTest = regex.test(data);
     if (regexTest !== true) {
-      setIsValid('CPF inválido');
+      setCpfError('CPF inválido');
       event.preventDefault();
     }
   };
-  //password validation
+
+  const validation = (event) => {
+    const regexCpf =
+      /^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}-?[0-9]{2})$/;
+    const regexPassword = /^[A-Za-z0-9]\w{7,14}$/;
+    loginValidator(event, cpf, regexCpf);
+    loginValidator(event, password, regexPassword);
+  };
   return (
     <>
       <HeaderLogin>
@@ -43,11 +49,12 @@ function LoginPage() {
         <LoginForm>
           <LoginLabel>Digite seu CPF:</LoginLabel>
           <UserInput onChange={(e) => setCpf(e.target.value)} />
-          <ValidCpf>{isValid}</ValidCpf>
+          <Message>{cpfError}</Message>
           <LoginLabel>Senha:</LoginLabel>
-          <PasswordInput />
+          <PasswordInput onChange={(e) => setPassword(e.target.value)} />
+          <Message>{cpfError}</Message>
           <Link to="/home">
-            <LoginButton type="button" onClick={cpfValidation}>
+            <LoginButton type="button" onClick={validation}>
               Entrar
             </LoginButton>
           </Link>
