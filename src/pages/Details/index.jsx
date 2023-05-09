@@ -1,8 +1,9 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+
 import Footer from '../../components/global/Footer';
 import NavBar from '../../components/global/NavBar';
 import NavMenu from '../../components/global/NavMenu';
-import productImage from '../../assets/images/image 21.png';
 import {
   MainContainer,
   ProductContainer,
@@ -19,24 +20,27 @@ import {
   ButtonContainer,
   CartButton,
 } from './styles';
+import { products } from '../../data/products';
 
 function MyCart() {
+  const params = useParams();
+  const currentProduct = products[params.id];
   return (
     <>
       <NavBar />
       <NavMenu />
       <MainContainer>
         <ProductContainer>
-          <ProductImage src={productImage} />
-          <ProductName>Microsoft Xbox Series X | Preto</ProductName>
+          <ProductImage src={currentProduct.image} />
+          <ProductName>{currentProduct.name}</ProductName>
           <DescriptionTitle>Descrição</DescriptionTitle>
-          <Description>Lorem ipsum, dolor sit amet consectetur</Description>
+          <Description>{currentProduct.description}</Description>
         </ProductContainer>
         <InfoContainer>
-          <InfoProductName>Microsoft Xbox Series X | Preto</InfoProductName>
-          <ProductPrice>R$ 2.000,00</ProductPrice>
+          <InfoProductName>{currentProduct.name}</InfoProductName>
+          <ProductPrice>{`R$ ${currentProduct.price},00`}</ProductPrice>
           <ColorContainer>
-            <ColorName>Cor: Preto</ColorName>
+            <ColorName>{`Cor: ${currentProduct.color}`}</ColorName>
             <ColorSample />
           </ColorContainer>
           <ButtonContainer>
